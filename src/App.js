@@ -1,4 +1,5 @@
 import Directory from "./Components/Directory";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 export default function App() {
 	const categories = [
 		{
@@ -28,8 +29,15 @@ export default function App() {
 		},
 	];
 	return (
-		<div className="App">
-			<Directory categories={categories} />
-		</div>
+		<BrowserRouter>
+			<div className="App">
+				<Routes>
+					<Route
+						path=""
+						element={<Directory categories={categories} />}
+					/>
+				</Routes>
+			</div>
+		</BrowserRouter>
 	);
 }
