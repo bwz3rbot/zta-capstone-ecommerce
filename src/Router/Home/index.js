@@ -1,6 +1,6 @@
-import Directory from "./Components/Directory";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-export default function App() {
+import { Outlet } from "react-router-dom";
+import Directory from "../../Components/Directory";
+export default function Home() {
 	const categories = [
 		{
 			id: 1,
@@ -29,15 +29,9 @@ export default function App() {
 		},
 	];
 	return (
-		<BrowserRouter>
-			<div className="App">
-				<Routes>
-					<Route
-						path=""
-						element={<Directory categories={categories} />}
-					/>
-				</Routes>
-			</div>
-		</BrowserRouter>
+		<>
+			<Directory categories={categories} />
+			<Outlet />
+		</>
 	);
 }
